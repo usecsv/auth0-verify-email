@@ -1,39 +1,64 @@
-import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
+import del from "rollup-plugin-delete";
 import typescript from "@rollup/plugin-typescript";
-import dts from "rollup-plugin-dts";
+import external from "rollup-plugin-peer-deps-external";
 import { terser } from "rollup-plugin-terser";
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-
+import resolve from "@rollup/plugin-node-resolve";
+import replace from "@rollup/plugin-replace";
+import pkg from "./package.json";
+import analyze from "rollup-plugin-analyzer";
 const packageJson = require("./package.json");
 
+const plugins = [
+  del({ targets: "dist/*", runOnce: true }),
+  typescript({ tsconfig: "./tsconfig.json" }),
+  external(),
+  resolve(),
+  replace({ __VERSION__: `'${pkg.version}'` }),
+  analyze({ summaryOnly: true }),
+];
+const input = "src/index.ts";
 export default [
-    {
-        input: "src/index.ts",
-        output: [
-            {
-                file: packageJson.main,
-                format: "cjs",
-                sourcemap: true,
-            },
-            {
-                file: packageJson.module,
-                format: "esm",
-                sourcemap: true,
-            },
-        ],
-        plugins: [
-            peerDepsExternal(),
-            resolve(),
-            commonjs(),
-            typescript({ tsconfig: "./tsconfig.json" }),
-            terser(),
-        ],
-        external: ["react", "react-dom"]
+  {
+    input,
+    output: [
+      {
+        name: packageJson.name,
+        file: "./dist/auth0-verify-email.js",
+        format: "umd",
+        sourcemap: true,
+      },
+    ],
+    plugins: [...plugins],
+  },
+  {
+    input,
+    output: [
+      {
+        name: packageJson.name,
+        file: "./dist/auth0-verify-email.min.js",
+        format: "umd",
+        sourcemap: true,
+      },
+    ],
+    plugins: [...plugins, terser()],
+  },
+  {
+    input,
+    output: {
+      name: packageJson.name,
+      file: pkg.main,
+      format: "cjs",
+      sourcemap: true,
     },
-    {
-        input: "dist/esm/types/index.d.ts",
-        output: [{ file: "dist/index.d.ts", format: "esm" }],
-        plugins: [dts()],
+    plugins,
+  },
+  {
+    input,
+    output: {
+      file: pkg.module,
+      format: "esm",
+      sourcemap: true,
     },
+    plugins,
+  },
 ];

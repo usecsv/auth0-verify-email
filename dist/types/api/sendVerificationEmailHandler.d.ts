@@ -10,9 +10,9 @@ declare type MessageSendingResponse = {
 declare type Response = {
     status: (s: number) => Response;
     json: (j: any) => void;
-    end(): () => Response;
+    end(): () => void;
 };
-export declare const sendVerificationEmailHandler: (req: {
+declare const sendVerificationEmailHandler: (req: {
     body: any;
 }, res: Response, getUserProfile: (id: string) => Promise<{
     [prop: string]: any;
@@ -22,4 +22,5 @@ export declare const sendVerificationEmailHandler: (req: {
         email_verified: boolean;
     };
 }>, sendVerificationEmail: (id: string, email: string) => Promise<MessageSendingResponse>) => Promise<void>;
-export {};
+export default sendVerificationEmailHandler;
+//# sourceMappingURL=sendVerificationEmailHandler.d.ts.map

@@ -5,3 +5,4 @@ declare const useHttpReq: (fetcher: () => Promise<any>) => [{
     data?: any;
 }, () => Promise<any>];
 export default useHttpReq;
+//# sourceMappingURL=useHttpReq.d.ts.map

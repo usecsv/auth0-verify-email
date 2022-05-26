@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import { VerifyYourAccount } from "./VerifyYourAccount";
+import VerifyYourAccount from "./VerifyYourAccount";
 type CheckEmailVerificationProps = {
   sendVerifyEmail: (userId: string) => Promise<any>;
   logout: () => void;
 };
-export const CheckEmailVerification: FC<CheckEmailVerificationProps> = ({ children, logout, sendVerifyEmail }) => {
+const CheckEmailVerification: FC<CheckEmailVerificationProps> = ({ children, logout, sendVerifyEmail }) => {
   if (typeof window === "undefined") return null;
   const urlParams = new URLSearchParams(window.location.search);
   const errorDescription = urlParams.get("error_description");
@@ -14,3 +14,5 @@ export const CheckEmailVerification: FC<CheckEmailVerificationProps> = ({ childr
   if (isEmailVerified) return <>{children}</>;
   return <VerifyYourAccount sendEmail={() => sendVerifyEmail(userId)} logout={logout} email={email} />;
 };
+
+export default CheckEmailVerification;

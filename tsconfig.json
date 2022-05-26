@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "target": "es5",
+    "lib": ["es6", "dom"],
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,
@@ -7,13 +9,21 @@
     "module": "ESNext",  
     "declaration": true,
     "declarationDir": "types",
+    "declarationMap": true,
     "sourceMap": true,
     "outDir": "dist",
     "moduleResolution": "node",
     "emitDeclarationOnly": true,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "useUnknownInCatchVariables": false
   },
+  "include": ["src"],
   "exclude": [
     "dist",
     "node_modules",

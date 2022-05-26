@@ -1,1 +1,0 @@
-export { sendVerificationEmailHandler } from "./sendVerificationEmailHandler";

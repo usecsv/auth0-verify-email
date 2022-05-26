@@ -23,7 +23,7 @@ const useCountDown = () => {
 };
 type VerifyYourAccountProps = { email: string; logout: () => any; sendEmail: () => Promise<any> };
 
-export const VerifyYourAccount: React.FC<VerifyYourAccountProps> = ({ email, logout, sendEmail }) => {
+const VerifyYourAccount: React.FC<VerifyYourAccountProps> = ({ email, logout, sendEmail }) => {
   const { seconds, startCountDown } = useCountDown();
   const [{ error, loading, called }, callsendEmail] = useHttpReq(sendEmail);
 
@@ -81,3 +81,5 @@ export const VerifyYourAccount: React.FC<VerifyYourAccountProps> = ({ email, log
     </Center>
   );
 };
+
+export default VerifyYourAccount;

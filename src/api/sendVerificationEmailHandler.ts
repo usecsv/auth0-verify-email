@@ -11,9 +11,9 @@ type MessageSendingResponse = {
 type Response = {
   status: (s: number) => Response;
   json: (j: any) => void;
-  end(): () => Response;
+  end(): () => void;
 };
-export const sendVerificationEmailHandler = async (
+const sendVerificationEmailHandler = async (
   req: { body: any },
   res: Response,
   getUserProfile: (
@@ -28,3 +28,4 @@ export const sendVerificationEmailHandler = async (
   await sendVerificationEmail(req.body.id, user.email);
   res.status(200).end();
 };
+export default sendVerificationEmailHandler;

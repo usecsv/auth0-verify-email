@@ -1,7 +1,7 @@
 import { Center, ChakraProvider, Text, Button, VStack } from "@chakra-ui/react";
 import React, { FC } from "react";
 
-export const EmailVerifiedNextPage: FC = () => {
+const EmailVerifiedNextPage: FC = () => {
   return (
     <ChakraProvider>
       <Center h="100vh">
@@ -14,3 +14,4 @@ export const EmailVerifiedNextPage: FC = () => {
     </ChakraProvider>
   );
 };
+export default EmailVerifiedNextPage;

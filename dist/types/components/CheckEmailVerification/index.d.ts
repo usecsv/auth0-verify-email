@@ -3,5 +3,6 @@ declare type CheckEmailVerificationProps = {
     sendVerifyEmail: (userId: string) => Promise<any>;
     logout: () => void;
 };
-export declare const CheckEmailVerification: FC<CheckEmailVerificationProps>;
-export {};
+declare const CheckEmailVerification: FC<CheckEmailVerificationProps>;
+export default CheckEmailVerification;
+//# sourceMappingURL=index.d.ts.map
