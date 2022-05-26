@@ -5,6 +5,7 @@ type CheckEmailVerificationProps = {
   logout: () => void;
 };
 export const CheckEmailVerification: FC<CheckEmailVerificationProps> = ({ children, logout, sendVerifyEmail }) => {
+  if (typeof window === "undefined") return null;
   const urlParams = new URLSearchParams(window.location.search);
   const errorDescription = urlParams.get("error_description");
   const error = typeof errorDescription === "string" && window.atob(errorDescription);
