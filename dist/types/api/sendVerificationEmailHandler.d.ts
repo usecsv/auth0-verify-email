@@ -18,7 +18,6 @@ declare const sendVerificationEmailHandler: (req: {
     [prop: string]: any;
     data: {
         email: string;
-        username: string;
         email_verified: boolean;
     };
 }>, sendVerificationEmail: (id: string, email: string) => Promise<MessageSendingResponse>) => Promise<void>;

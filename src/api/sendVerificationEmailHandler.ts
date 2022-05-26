@@ -16,9 +16,7 @@ type Response = {
 const sendVerificationEmailHandler = async (
   req: { body: any },
   res: Response,
-  getUserProfile: (
-    id: string,
-  ) => Promise<{ data: { email: string; username: string; email_verified: boolean }; [prop: string]: any }>,
+  getUserProfile: (id: string) => Promise<{ data: { email: string; email_verified: boolean }; [prop: string]: any }>,
   sendVerificationEmail: (id: string, email: string) => Promise<MessageSendingResponse>,
 ) => {
   const userResponse = await getUserProfile(req.body.id);
