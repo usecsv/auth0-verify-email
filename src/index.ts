@@ -1,2 +1,2 @@
 export { VerifyYourAccount } from "./components/VerifyYourAccount";
-export { EmailVerifiedNextPage }from "./components/EmailVerifiedNextPage"
+export { EmailVerifiedNextPage } from "./components/EmailVerifiedNextPage";

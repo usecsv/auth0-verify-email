@@ -8,9 +8,7 @@ export const EmailVerifiedNextPage: FC = () => {
         <VStack textAlign="center" spacing="6">
           <Text>Your email has been verified 🎉</Text>
 
-          <Button onClick={() => window.location.assign("/admin")}>
-            Continue to UseCSV
-             </Button>
+          <Button onClick={() => window.location.assign("/admin")}>Continue to UseCSV</Button>
         </VStack>
       </Center>
     </ChakraProvider>

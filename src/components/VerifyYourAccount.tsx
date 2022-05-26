@@ -1,5 +1,5 @@
 import { Box, Center, Divider, Text, VStack, Button } from "@chakra-ui/react";
-import React,{ useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import useHttpReq from "./useHttpReq";
 
 const useCountDown = () => {
@@ -81,4 +81,3 @@ export const VerifyYourAccount: React.FC<VerifyYourAccountProps> = ({ email, log
     </Center>
   );
 };
-
