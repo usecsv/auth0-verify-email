@@ -4,5 +4,5 @@ declare type VerifyYourAccountProps = {
     logout: () => any;
     sendEmail: () => Promise<any>;
 };
-declare const VerifyYourAccount: React.FC<VerifyYourAccountProps>;
-export default VerifyYourAccount;
+export declare const VerifyYourAccount: React.FC<VerifyYourAccountProps>;
+export {};

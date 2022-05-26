@@ -1,10 +1,18 @@
-/// <reference types="react" />
-import * as react from 'react';
+import React, { FC } from 'react';
 
-declare const VerifyYourAccount: react.FC<{
+declare type VerifyYourAccountProps = {
     email: string;
     logout: () => any;
     sendEmail: () => Promise<any>;
-}>;
+};
+declare const VerifyYourAccount: React.FC<VerifyYourAccountProps>;
 
-export { VerifyYourAccount as default };
+declare const EmailVerifiedNextPage: FC;
+
+declare type CheckEmailVerificationProps = {
+    sendVerifyEmail: (userId: string) => Promise<any>;
+    logout: () => void;
+};
+declare const CheckEmailVerification: FC<CheckEmailVerificationProps>;
+
+export { CheckEmailVerification, EmailVerifiedNextPage, VerifyYourAccount };
