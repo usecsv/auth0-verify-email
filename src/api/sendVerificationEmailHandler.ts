@@ -11,7 +11,7 @@ type MessageSendingResponse = {
 type Response = {
   status: (s: number) => Response;
   json: (j: any) => void;
-  end(): () => void;
+  end: () => void;
 };
 const sendVerificationEmailHandler = async (
   req: { body: any },

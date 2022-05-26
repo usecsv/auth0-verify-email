@@ -10,7 +10,7 @@ declare type MessageSendingResponse = {
 declare type Response = {
     status: (s: number) => Response;
     json: (j: any) => void;
-    end(): () => void;
+    end: () => void;
 };
 declare const sendVerificationEmailHandler: (req: {
     body: any;
