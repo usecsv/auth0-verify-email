@@ -95,7 +95,18 @@ var CheckEmailVerification = function (_a) {
     var isEmailVerified = errorCode !== "email_not_verified";
     if (isEmailVerified)
         return React.createElement(React.Fragment, null, children);
-    return React.createElement(VerifyYourAccount, { sendEmail: function () { return sendVerifyEmail(userId); }, logout: logout, email: email });
+    return (React.createElement(VerifyYourAccount, { sendEmail: sendVerifyEmail
+            ? function () { return sendVerifyEmail(userId); }
+            : function () {
+                return fetch("/api/user/send-verfication-email", {
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json;charset=UTF-8",
+                    },
+                    method: "POST",
+                    body: JSON.stringify({ id: userId }),
+                });
+            }, logout: logout, email: email }));
 };
 
 var EmailVerifiedNextPage = function () {

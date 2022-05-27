@@ -6,16 +6,24 @@ import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import pkg from "./package.json";
 import analyze from "rollup-plugin-analyzer";
+import commonjs from "@rollup/plugin-commonjs";
+import json from "rollup-plugin-json";
+
 const packageJson = require("./package.json");
 
 const plugins = [
   del({ targets: "dist/*", runOnce: true }),
-  typescript({ tsconfig: "./tsconfig.json" }),
   external(),
   resolve(),
-  replace({ __VERSION__: `'${pkg.version}'` }),
+  commonjs(),
+  json({
+    compact: true,
+  }),
+  typescript({ tsconfig: "./tsconfig.json" }),
+  replace({ __VERSION__: `'${pkg.version}'`, preventAssignment: false }),
   analyze({ summaryOnly: true }),
 ];
+
 const input = "src/index.ts";
 export default [
   {
