@@ -114,7 +114,7 @@ var EmailVerifiedNextPage = function () {
         React.createElement(Center, { h: "100vh" },
             React.createElement(VStack, { textAlign: "center", spacing: "6" },
                 React.createElement(Text, null, "Your email has been verified \uD83C\uDF89"),
-                React.createElement(Button, { onClick: function () { return window.location.assign("/admin"); } }, "Continue to UseCSV")))));
+                React.createElement(Button, { onClick: function () { return window.location.assign("/admin"); } }, "Continue to app")))));
 };
 
 /******************************************************************************

@@ -121,7 +121,7 @@
             React__default["default"].createElement(react.Center, { h: "100vh" },
                 React__default["default"].createElement(react.VStack, { textAlign: "center", spacing: "6" },
                     React__default["default"].createElement(react.Text, null, "Your email has been verified \uD83C\uDF89"),
-                    React__default["default"].createElement(react.Button, { onClick: function () { return window.location.assign("/admin"); } }, "Continue to UseCSV")))));
+                    React__default["default"].createElement(react.Button, { onClick: function () { return window.location.assign("/admin"); } }, "Continue to app")))));
     };
 
     /******************************************************************************
